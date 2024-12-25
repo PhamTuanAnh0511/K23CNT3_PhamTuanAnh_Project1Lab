@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body{
-            background-image: url('https://img.freepik.com/free-vector/abstract-arrow-background-blue-gradient-business-reverse-symbol-vector_53876-140568.jpg?t=st=1733626178~exp=1733629778~hmac=6db37510c64e69c0b41ca524500563c0bd146b8bdee674c7ce8137087d8b86a9&w=740');
-            background-size: cover; /* Ảnh bao phủ toàn màn hình */
-            background-position: center; /* Căn giữa ảnh */
-            background-repeat: no-repeat; /* Không lặp lại ảnh */
+        body {
+            background: #f0f2f5;
+            font-family: 'Arial', sans-serif;
             height: 100vh;
             margin: 0;
             display: flex;
@@ -18,45 +18,126 @@
             align-items: center;
             height: 50vh;
             margin: 0;
-            }
-        .form-container {
-            background-color: beige;
-            padding: 25px;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-container h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .form-label {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-shadow: none;
+            font-size: 16px;
+            padding: 12px;
+        }
+
+        .form-control:focus {
+            border-color: #0069d9;
+            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+        }
+
+        .btn-primary {
+            background-color: #0069d9;
+            border-color: #0062cc;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px;
             border-radius: 10px;
             width: 100%;
-            max-width: 350px;
+            transition: 0.3s;
         }
-        .form-container h2{
-            text-align: left;
-            margin-bottom: 15px;
-            color: aqua;
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
         }
-        .alert {
-            font-size: 10px;
-            margin-top: 5px;
-            padding: 5px;
+
+        .forgot-password {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .forgot-password a {
+            color: #0069d9;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        /* Add custom background for the page */
+        .container {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        /* Custom padding for input fields */
+        .mb-3 {
+            margin-bottom: 20px;
         }
         </style>
+        </style>
+    <title>Đăng nhập </title>
+    </style>
     <title>Đăng nhập </title>
 </head>
+
 <body>
-    <form method="POST" action="{{route('login')}}">
-        @csrf 
-        <div class="form-group">
-            <label for="email">Email : </label>
-            <input type="email" name="email" id="email" class="form-control">
-            @error('email')
-            <span class="alert alert-danger">{{$message}}</span>
-            @enderror
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="login-container">
+            <h1>Login Quản Trị Hệ Thống</h1>
+            <form action="{{ route('admins.ptaLoginSubmit') }}" method="POST">
+                @csrf
+
+                <div class="mb-3">
+                    <label for="ptaTaiKhoan" class="form-label">Tên tài khoản</label>
+                    <input type="text" class="form-control" id="ptaTaiKhoan" name="ptaTaiKhoan" required />
+                    @error('ptaTaiKhoan')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label for="ptaMatKhau" class="form-label">Mật khẩu</label>
+                    <input type="password" class="form-control" id="ptaMatKhau" name="ptaMatKhau" required />
+                    @error('ptaMatKhau')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+
+                <div class="forgot-password">
+                    <a href="#">Forgot password?</a>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="password">Password : </label>
-            <input type="password" class="form-control" name="password" id="password" value="">
-            @error('password')
-            <span class="alert alert-danger">{{$message}}</span>
-            @enderror
-        </div>
-        <button type="submit" class="btn btn-dark">Login</button>
-    </form>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>
