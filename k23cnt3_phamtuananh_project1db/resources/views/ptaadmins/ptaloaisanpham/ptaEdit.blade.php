@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col">
                 <!-- Update the form action route to pass the ptaMaLoai as a parameter -->
-                <form action="{{ route('ptaadmins.ptaloaisanpham.ptaEditSubmit') }}" method="POST">
+                <form action="{{ route('ptaadmins.ptaloaisanpham.ptaEditsubmit') }}" method="POST">
                     @csrf
                     <!-- Hidden input for the ID -->
                     <input type="hidden" name="id" value="{{ $ptaloaisanpham->id }}">

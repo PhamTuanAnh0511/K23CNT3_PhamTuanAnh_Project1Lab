@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('ptaMaHoaDon',255)->unique();
             $table->bigInteger('ptaMaKhachHang')->references('id')->on('pta_khach_hang');
-            $table->dateTime('ptaNgayHoaDon');
-            $table->dateTime('ptaNgayNhan');
+            $table->date('ptaNgayHoaDon');
+            $table->date('ptaNgayNhan');
             $table->string('ptaHoTenKhachHang',255);
             $table->string('ptaEmail',255);
             $table->string('ptaDienThoai',255);
             $table->string('ptaDiaChi',255);
-            $table->float('ptaTongTriGia');
+            $table->float('ptaTongGiaTri');
             $table->tinyInteger('ptaTrangThai');
             $table->timestamps();
         });

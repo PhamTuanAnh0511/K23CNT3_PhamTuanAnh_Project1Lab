@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-       
-        Schema::create('pta__c_t_hoa_don', function (Blueprint $table) {
+        Schema::create('pta_ct_hoa_don', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('ptaHoaDonID')->references('id')->on('pta_hoa_don');
-            $table->bigInteger('ptaSanPhamID')->references('id')->on('pta_san_pham');
+            $table->bigInteger('ptaSanPhamID')->references('id')->on('pta_San_pham');
             $table->integer('ptaSoLuongMua');
             $table->float('ptaDonGiaMua');
-            $table->float('ptaThanhTien');
+            $table->double('ptaThanhTien');
             $table->tinyInteger('ptaTrangThai');
             $table->timestamps();
         });
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pta__c_t_hoa_don');
+        Schema::dropIfExists('pta_ct_hoa_don');
     }
 };

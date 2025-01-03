@@ -12,7 +12,7 @@
                 </div>
                 <div class="card-body">
                     <!-- Form chỉnh sửa sản phẩm -->
-                    <form action="{{ route(''ptaadmins.ptasanpham.ptaEditSubmit', $ptasanpham->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('ptaadmins.ptasanpham.ptaEditsubmit', $ptasanpham->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
 
@@ -101,7 +101,7 @@
                 </div>
                 <div class="card-footer">
                     <!-- Nút quay lại danh sách sản phẩm -->
-                    <a href="{{ route(ptaadmins.ptasanpham') }}" class="btn btn-secondary">Quay lại danh sách</a>
+                    <a href="{{ route('ptaadmins.ptasanpham') }}" class="btn btn-secondary">Quay lại danh sách</a>
                 </div>
             </div>
         </div>

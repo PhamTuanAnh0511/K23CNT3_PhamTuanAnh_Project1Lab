@@ -14,22 +14,27 @@ class pta_loai_san_pham_TableSeeder extends Seeder
     {
         DB::table('pta_loai_san_pham')->insert([
             'ptaMaLoai'=> "L001",
-            'ptaTenLoai'=>"Cây cảnh văn phòng",
+            'ptaTenLoai'=>"Sơ Mi",
             'ptaTrangThai'=>0
         ]);
         DB::table('pta_loai_san_pham')->insert([
             'ptaMaLoai'=> "L002",
-            'ptaTenLoai'=>"Cây để bàn",
+            'ptaTenLoai'=>"Măng Tô",
             'ptaTrangThai'=>0
         ]);
         DB::table('pta_loai_san_pham')->insert([
             'ptaMaLoai'=> "L003",
-            'ptaTenLoai'=>"Cây cảnh phong thủy",
+            'ptaTenLoai'=>"Vest",
             'ptaTrangThai'=>0
         ]);
         DB::table('pta_loai_san_pham')->insert([
             'ptaMaLoai'=> "L004",
-            'ptaTenLoai'=>"Cây thủy canh",
+            'ptaTenLoai'=>"Quần Âu",
+            'ptaTrangThai'=>0
+        ]);
+        DB::table('pta_loai_san_pham')->insert([
+            'ptaMaLoai'=> "L005",
+            'ptaTenLoai'=>"Giày Da",
             'ptaTrangThai'=>0
         ]);
     }

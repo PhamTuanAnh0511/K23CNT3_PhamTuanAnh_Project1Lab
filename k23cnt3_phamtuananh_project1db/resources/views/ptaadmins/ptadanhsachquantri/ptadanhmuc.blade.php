@@ -13,8 +13,9 @@
                 <div class="card text-center shadow-lg">
                     <div class="card-body bg-primary text-white">
                         <h5 class="card-title">Sản Phẩm</h5>
-                        <p class="card-text">Số lượng sản phẩm</p>
-                        <a href="/pta-admins/pta-san-pham" class="btn btn-outline-light">Xem Sản Phẩm</a>
+                        <p class="card-text">Số lượng sản phẩm:</p>
+                        <p class="card-text">{{ $productCount }} sản phẩm</p> <!-- Hiển thị số lượng sản phẩm -->
+                        <a href="/pta-admins/ptadanhsachquantri/ptasanpham" class="btn btn-outline-light">Xem Sản Phẩm</a>
                     </div>
                 </div>
             </div>
@@ -25,18 +26,20 @@
                     <div class="card-body bg-info text-white">
                         <h5 class="card-title">Tin Tức</h5>
                         <p class="card-text">Số lượng bài viết</p>
+                        <p class="card-text" >Tin Tức New : {{ $ttCount }}</p>
                         <a href="/pta-admins/pta-tin-tuc" class="btn btn-outline-light">Xem Tin Tức</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Tài khoản người dùng -->
+            <!-- Tài khoản người dùng --> 
             <div class="col-md-4">
                 <div class="card text-center shadow-lg">
                     <div class="card-body bg-success text-white">
                         <h5 class="card-title">Tài Khoản Người Dùng</h5>
-                        <p class="card-text">Số lượng người dùng</p>
-                        <a href="/pta-admins/pta-nguoi-dung" class="btn btn-outline-light">Xem Người Dùng</a>
+                        
+                        <p class="card-text"> Số lượng người dùng: {{$userCount}}</p>
+                        <a href="/pta-admins/ptadanhsachquantri/ptanguoidung" class="btn btn-outline-light">Xem Người Dùng</a>
                     </div>
                 </div>
             </div>

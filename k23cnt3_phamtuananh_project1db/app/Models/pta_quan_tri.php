@@ -9,5 +9,12 @@ class pta_quan_tri extends Model
 {
     use HasFactory;
 
-    protected $table="pta_quan_tri";
+    // Chỉ định bảng của model nếu tên bảng khác tên mặc định
+    protected $table = 'pta_quan_tri';
+
+    // Chỉ định các cột có thể gán (mass assignable)
+    protected $fillable = ['ptaTaiKhoan', 'ptaMatKhau', 'ptaTrangThai'];
+
+    // Tắt timestamp nếu không cần
+    public $timestamps = false;
 }

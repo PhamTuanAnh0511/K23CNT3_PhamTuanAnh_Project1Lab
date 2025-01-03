@@ -1,22 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\pta_loai_san_pham;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
+use App\Models\pta_loai_san_pham; // Sử dụng Model User để thao tác với cơ sở dữ liệu
 class pta_loai_san_pham1 extends Controller
 {
+    //admin CRUD
+    // list
     public function ptaList()
     {
         $ptaloaisanphams = pta_loai_san_pham::all();
-        return view('ptaadmins.ptaloaisanpham.ptaList', ['ptaloaisanpham' => $ptaloaisanphams]);
-    }
-    public function ptaCreate()
-    {
-        return view('ptaadmins\ptaloaisanpham\ptaCreate');
+        return view('ptaadmins.ptaloaisanpham.ptaList',['ptaloaisanphams'=>$ptaloaisanphams]);
     }
 
-    public function ptaCreateSunmit(Request $request)
+    //create
+    public function ptaCreate()
+    {
+        return view('ptaadmins.ptaloaisanpham.ptaCreate');
+    }
+
+    public function ptaCreatesubmit(Request $request)
     {
         $validatedData = $request->validate([
             'ptaMaLoai' => 'required|unique:pta_loai_san_pham,ptaMaLoai',  // Kiểm tra mã loại không trống và duy nhất
@@ -30,8 +34,9 @@ class pta_loai_san_pham1 extends Controller
         $ptaloaisanpham->ptaTrangThai = $request->ptaTrangThai;
 
         $ptaloaisanpham->save();
-       return redirect('/pta-admins/pta-loai-san-pham');
+       return redirect()->route('ptaadmins.ptaloaisanpham');
     }
+
     public function ptaEdit($id)
     {
         // Retrieve the product by the primary key (id)
@@ -46,7 +51,7 @@ class pta_loai_san_pham1 extends Controller
         return view('ptaadmins.ptaloaisanpham.ptaEdit', ['ptaloaisanpham' => $ptaloaisanpham]);
     }
     
-    public function ptaEditSubmit(Request $request)
+    public function ptaEditsubmit(Request $request)
     {
         // Validate the form data
         $validatedData = $request->validate([
@@ -74,17 +79,20 @@ class pta_loai_san_pham1 extends Controller
         // Redirect back to the list page with a success message
         return redirect()->route('ptaadmins.ptaloaisanpham')->with('success', 'Cập nhật loại sản phẩm thành công.');
     }
+    
+    
+
     public function ptaGetDetail($id)
     {
         $ptaloaisanpham = pta_loai_san_pham::where('id', $id)->first();
-        return view('ptaAdmins.ptaloaisanpham.ptaDetail',['ptaloaisanpham'=>$ptaloaisanpham]);
+        return view('ptaadmins.ptaloaisanpham.ptaDetail',['ptaloaisanpham'=>$ptaloaisanpham]);
 
     }
 
     public function ptaDelete($id)
     {
         pta_loai_san_pham::where('id',$id)->delete();
-    return back()->with('loaisanpham_deleted','Đã xóa sinh viên thành công!');
+        return back()->with('loaisanpham_deleted','Đã xóa Loại Sản Phẩm thành công!');
     }
 
-}    
+}

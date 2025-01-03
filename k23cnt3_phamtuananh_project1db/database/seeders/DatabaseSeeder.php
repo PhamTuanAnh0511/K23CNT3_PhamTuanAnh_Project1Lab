@@ -22,6 +22,10 @@ class DatabaseSeeder extends Seeder
             pta_quan_triTableSeeder::class,
             pta_loai_san_pham_TableSeeder::class,
             pta_san_pham_TableSeeder::class,
+            pta_ct_hoa_donTableSeeder::class,
+            pta_hoa_donTableSeeder::class,
+            pta_tin_tuc::class,
+            pta_khach_hangTableSeeder::class,
         ]);
     }
 }

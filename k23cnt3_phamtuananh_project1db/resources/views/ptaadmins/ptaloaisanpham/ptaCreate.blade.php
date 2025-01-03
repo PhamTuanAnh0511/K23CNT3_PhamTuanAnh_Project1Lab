@@ -5,7 +5,7 @@
     <div class="container border">
         <div class="row">
             <div class="col">
-                <form action="{{route('pta_Admins.ptaloaisanpham.pta_createsubmit')}}" method="POST">
+                <form action="{{route('ptaadmins.ptaloaisanpham.ptaCreate')}}" method="POST">
                     @csrf
                     <div class="card">
                         <div class="card-header">

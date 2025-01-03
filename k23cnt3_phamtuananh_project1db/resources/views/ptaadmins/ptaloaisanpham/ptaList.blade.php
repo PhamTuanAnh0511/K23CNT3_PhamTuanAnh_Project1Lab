@@ -7,7 +7,7 @@
             <div class="col-12 d-flex justify-content-between align-items-center">
                 <h1>Danh Sách Loại Sản Phẩm</h1>
                 <!-- Nút Thêm Mới -->
-                <a href="{{route('pta_Admins.ptaloaisanpham.pta_createsubmit')}}" class="btn btn-success btn-lg">
+                <a href="{{route('ptaadmins.ptaloaisanpham.ptaCreatesubmit')}}" class="btn btn-success btn-lg">
                     <i class="fa-solid fa-plus-circle"></i> Thêm Mới
                 </a>
             </div>
@@ -27,7 +27,7 @@
                     @php
                         $stt = 0;
                     @endphp
-                    @forelse ($ptaloaisanpham as $item)
+                    @forelse ($ptaloaisanphams as $item)
                         @php
                             $stt++;
                         @endphp
@@ -46,15 +46,16 @@
                                 <!-- Các nút chức năng với icon -->
                                 <div class="btn-group" role="group">
                                     <!-- Xem chi tiết -->
-                                    <a href="/pta-admins/pta-loai-san-pham/pta-detail/{{ $item->id }}" class="btn btn-success btn-sm" title="Xem"> Xem
+                                    <a href="/pta-admins/pta-loai-san-pham/pta-Detail/{{ $item->id }}" class="btn btn-success btn-sm" title="Xem"> Xem
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
+                                    
                                     <!-- Chỉnh sửa -->
-                                    <a href="/pta-admins/pta-loai-san-pham/pta-edit/{{ $item->id }}" class="btn btn-primary btn-sm" title="Chỉnh sửa"> Sửa
+                                    <a href="/pta-admins/pta-loai-san-pham/pta-Edit/{{ $item->id }}" class="btn btn-primary btn-sm" title="Chỉnh sửa"> Sửa
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
                                     <!-- Xóa -->
-                                    <a href="/pta-admins/pta-loai-san-pham/pta-delete/{{ $item->id }}" class="btn btn-danger btn-sm" 
+                                    <a href="/pta-admins/pta-loai-san-pham/pta-Delete/{{ $item->id }}" class="btn btn-danger btn-sm" 
                                        onclick="return confirm('Bạn muốn xóa Mã Loại này không? ID: {{ $item->id }}');" title="Xóa"> Xóa
                                         <i class="fa-regular fa-trash-can"></i>
                                     </a>
